@@ -1,4 +1,4 @@
-# insta-bot-with-unfollows
+# py-insta-bot-with-unfollows
 
 ## An Instagram bot written in Python that does the following: 
 * Browsing specified hashtags and liking random posts 
