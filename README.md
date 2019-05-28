@@ -34,6 +34,9 @@ python InstaBot.py
 ```
 
 **days_to_unfollow:** number of days before unfollowing users
+
 **likes_over:** ignore posts if the number of likes is above this number
+
 **check_followers_every:** number of seconds before checking if it's time to unfollow any of the users
+
 **hashtags:** a list of strings with the hashtag names the bot should be active on
