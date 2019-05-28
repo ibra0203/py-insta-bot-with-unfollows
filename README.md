@@ -18,10 +18,14 @@ The database name can be changed from settings.json.
 The bot requires one table called followed_users within the database with two fields (username, date_added)
 
 ## Installation
-After filling in the missing information in settings.json, run InstaBot.py 
+1. Fill in the missing information in settings.json
+2. Change line 4 in InstaBot.py to include your chromedrive path
+3. run InstaBot.py:
 ```
 python InstaBot.py
 ```
+
+
 
 ## Settings 
 ```
