@@ -2,7 +2,7 @@ import datetime, TimeHelper
 from DBHandler import *
 import Constants
 
-
+#delete user by username
 def delete_user(username):
     mydb = DBHandler.get_mydb()
     cursor = mydb.cursor()
@@ -11,6 +11,7 @@ def delete_user(username):
     mydb.commit()
 
 
+#add new username
 def add_user(username):
     mydb = DBHandler.get_mydb()
     cursor = mydb.cursor()
@@ -19,12 +20,8 @@ def add_user(username):
     mydb.commit()
 
 
-def add_user_list(users):
-    for user in users:
-        add_user(user)
-
-
-def check_user_list():
+#check if any user qualifies to be unfollowed
+def check_unfollow_list():
     mydb = DBHandler.get_mydb()
     cursor = mydb.cursor()
     cursor.execute("SELECT * FROM followed_users")
@@ -37,6 +34,7 @@ def check_user_list():
     return users_to_unfollow
 
 
+#get all followed users
 def get_followed_users():
     users = []
     mydb = DBHandler.get_mydb()
@@ -47,13 +45,3 @@ def get_followed_users():
         users.append(r[0])
 
     return users
-
-
-def check_following_user(username):
-    cursor = DBHandler.get_mydb().cursor()
-    row_count =0
-    cursor.execute("SELECT * from followed_users WHERE username = %s", (username,))
-    results = cursor.fetchall()
-    for r in results:
-        return True
-    return False
