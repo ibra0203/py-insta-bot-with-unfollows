@@ -8,7 +8,9 @@
 
 ## Requirements 
 The following libraries are required for the bot to work:
->PyHamcrest, mysql-connector, selenium
+* PyHamcrest
+* mysql-connector 
+* selenium
 
 The bot needs to connect to a database to store and query the users 
 The database name can be changed from settings.json 
