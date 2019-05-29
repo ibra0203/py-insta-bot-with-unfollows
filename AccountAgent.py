@@ -99,40 +99,39 @@ def follow_people(webdriver):
                     if likes > Constants.LIKES_LIMIT:
                         print("likes over {0}".format(Constants.LIKES_LIMIT))
                         likes_over_limit = True
-                except:
-                    print("No likes number found")
-
-                print("Detected: {0}".format(username))
-                #If username isn't stored in the database and the likes are in the acceptable range
-                if username not in prev_user_list and not likes_over_limit:
-                    #Don't press the button if the text doesn't say follow
-                    if webdriver.find_element_by_xpath('/html/body/div[3]/div[2]/div/article/header/div[2]/div[1]/div[2]/button').text == 'Follow':
-                        #Use DBUsers to add the new user to the database
-                        DBUsers.add_user(username)
-                        #Click follow
-                        webdriver.find_element_by_xpath('/html/body/div[3]/div[2]/div/article/header/div[2]/div[1]/div[2]/button').click()
-                        followed += 1
-                        print("Followed: {0}, #{1}".format(username, followed))
-                        new_followed.append(username)
 
 
-                    # Liking the picture
-                    button_like = webdriver.find_element_by_xpath(
-                        '/html/body/div[3]/div[2]/div/article/div[2]/section[1]/span[1]/button')
+                    print("Detected: {0}".format(username))
+                    #If username isn't stored in the database and the likes are in the acceptable range
+                    if username not in prev_user_list and not likes_over_limit:
+                        #Don't press the button if the text doesn't say follow
+                        if webdriver.find_element_by_xpath('/html/body/div[3]/div[2]/div/article/header/div[2]/div[1]/div[2]/button').text == 'Follow':
+                            #Use DBUsers to add the new user to the database
+                            DBUsers.add_user(username)
+                            #Click follow
+                            webdriver.find_element_by_xpath('/html/body/div[3]/div[2]/div/article/header/div[2]/div[1]/div[2]/button').click()
+                            followed += 1
+                            print("Followed: {0}, #{1}".format(username, followed))
+                            new_followed.append(username)
 
-                    button_like.click()
-                    likes += 1
-                    print("Liked {0}'s post, #{1}".format(username, likes))
-                    sleep(random.randint(5, 18))
+
+                        # Liking the picture
+                        button_like = webdriver.find_element_by_xpath(
+                            '/html/body/div[3]/div[2]/div/article/div[2]/section[1]/span[1]/button')
+
+                        button_like.click()
+                        likes += 1
+                        print("Liked {0}'s post, #{1}".format(username, likes))
+                        sleep(random.randint(5, 18))
 
 
                     # Next picture
                     webdriver.find_element_by_link_text('Next').click()
                     sleep(random.randint(20, 30))
-
-                else:#otherwise just click next quickly
-                    webdriver.find_element_by_link_text('Next').click()
-                    sleep(random.randint(1, 3))
+                    
+                except:
+                    traceback.print_exc()
+                    continue
                 t_end = datetime.datetime.now()
 
                 #calculate elapsed time
