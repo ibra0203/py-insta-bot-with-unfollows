@@ -1,5 +1,5 @@
 # py-insta-bot-with-unfollows
-
+[Tutorial/Explanation article](https://medium.com/@modyari/building-an-instagram-bot-in-python-and-selenium-to-gain-more-followers-4c465f1a2ab5)
 ## An Instagram bot written in Python that does the following: 
 * Browsing specified hashtags and liking random posts 
 * Following posters of these posts
