@@ -20,4 +20,5 @@ def init():
     LIKES_LIMIT = obj['config']['likes_over']
     CHECK_FOLLOWERS_EVERY=obj['config']['check_followers_every']
     HASHTAGS = obj['config']['hashtags']
+    DAYS_TO_UNFOLLOW = obj['config']['days_to_unfollow']
 
